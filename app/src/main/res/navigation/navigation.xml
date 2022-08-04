@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/menu1"
-        android:name="com.chs.screentimeactive.ui.fragment.Fragment1"
+        android:name="com.chs.screentimeactive.ui.main.MainFragment"
         android:label="Fragment1" />
     <fragment
         android:id="@+id/menu2"
