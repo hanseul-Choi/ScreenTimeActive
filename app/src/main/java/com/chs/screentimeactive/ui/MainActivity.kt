@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.chs.screentimeactive.R
+import com.chs.screentimeactive.permission.PermissionUtil
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity() {
 
         navController?.let {
             bottomNavigationView.setupWithNavController(it)
+        }
+
+        if(PermissionUtil.checkPermission(this)) {
+            
         }
     }
 }
