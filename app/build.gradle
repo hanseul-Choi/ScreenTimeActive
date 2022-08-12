@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.chs.screentimeactive"
-        minSdk 21
+        minSdk 23 // minSdk 23 :PACKAGE_USAGE_STATS 권한을 위해
         targetSdk 32
         versionCode 1
         versionName "1.0"
