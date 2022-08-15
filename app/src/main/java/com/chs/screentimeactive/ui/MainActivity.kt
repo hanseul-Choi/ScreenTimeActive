@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             bottomNavigationView.setupWithNavController(it)
         }
 
-        if(PermissionUtil.checkPermission(this)) {
+        if(PermissionUtil.checkOPSPermission(this)) {
             
         }
     }

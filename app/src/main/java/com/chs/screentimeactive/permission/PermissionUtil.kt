@@ -1,15 +1,17 @@
 package com.chs.screentimeactive.permission
 
 import android.Manifest
+import android.app.AlertDialog
 import android.app.AppOpsManager
+import android.app.Dialog
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import com.chs.screentimeactive.R
 
 object PermissionUtil {
-
-    fun checkPermission(context: Context) : Boolean {
+    fun checkOPSPermission(context: Context) : Boolean {
         val appOps = context.applicationContext.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
 
         val mode = if(Build.VERSION_CODES.Q <= Build.VERSION.SDK_INT) {
@@ -26,5 +28,14 @@ object PermissionUtil {
         } else {
             (mode == AppOpsManager.MODE_ALLOWED)
         }
+    }
+
+    fun showPermissionDialog(context: Context) {
+        val dialogView = (context as AppCompatActivity).layoutInflater.inflate(R.layout.activity_main, null)
+
+        AlertDialog.Builder(context)
+            .setView(dialogView)
+            .create()
+            .show()
     }
 }
