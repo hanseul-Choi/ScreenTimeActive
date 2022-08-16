@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="toolbar_title">#FF000080</color>
+    <color name="sky_blue">#FF87CEEB</color>
 </resources>

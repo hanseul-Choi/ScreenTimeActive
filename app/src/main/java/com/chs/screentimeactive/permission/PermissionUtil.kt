@@ -3,14 +3,21 @@ package com.chs.screentimeactive.permission
 import android.Manifest
 import android.app.AlertDialog
 import android.app.AppOpsManager
-import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
-import com.chs.screentimeactive.R
+import android.provider.Settings
+import android.util.Log
+import android.view.LayoutInflater
+import com.chs.screentimeactive.databinding.PermissionDialogBinding
 
 object PermissionUtil {
+    private lateinit var alertDialog: AlertDialog
+    private val useAgeIntent = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
+
+    var checkFirstPermission = false
+
     fun checkOPSPermission(context: Context) : Boolean {
         val appOps = context.applicationContext.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
 
@@ -31,11 +38,26 @@ object PermissionUtil {
     }
 
     fun showPermissionDialog(context: Context) {
-        val dialogView = (context as AppCompatActivity).layoutInflater.inflate(R.layout.activity_main, null)
+//        val dialogView = (context as AppCompatActivity).layoutInflater.inflate(R.layout.permission_dialog, null)
+        val dialogBindingView = PermissionDialogBinding.inflate(LayoutInflater.from(context), null, false)
 
-        AlertDialog.Builder(context)
-            .setView(dialogView)
+        dialogBindingView.requirePermissionRv.adapter = PermissionAdapter()
+
+        alertDialog = AlertDialog.Builder(context).setView(dialogBindingView.root)
+            .setCancelable(false)
             .create()
-            .show()
+
+        dialogBindingView.permissionApplyTv.setOnClickListener {
+            Log.d("test", "click permission apply")
+            checkFirstPermission = true
+
+            context.startActivity(useAgeIntent)
+
+            // dismiss dialog
+            alertDialog.dismiss()
+        }
+
+        // show dialog
+        alertDialog.show()
     }
 }
