@@ -17,7 +17,7 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:title="오늘의 집중시간 : 00시간 00분"
             app:titleCentered="true"
-            app:titleTextAppearance="@style/Dalseo.H2.Bold"
+            app:titleTextAppearance="@style/DalseoBold.H2"
             app:titleTextColor="@color/toolbar_title">
 
         </com.chs.screentimeactive.common.LottieGrassToolbar>
