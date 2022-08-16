@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="H1">
+    <style name="Dalseo">
+        <item name="fontFamily">@font/dalseo_darling</item>
+    </style>
+
+    <style name="Dalseo.H1">
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Dalseo.H1.Bold">
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="H2">
+    <style name="Dalseo.H2">
         <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Dalseo.H2.Bold">
         <item name="android:textStyle">bold</item>
     </style>
 
