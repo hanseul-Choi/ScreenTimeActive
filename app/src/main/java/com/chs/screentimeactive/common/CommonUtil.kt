@@ -2,7 +2,6 @@ package com.chs.screentimeactive.common
 
 import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 
 object CommonUtil {
@@ -17,4 +16,6 @@ object CommonUtil {
             .create()
             .show()
     }
+
+
 }
