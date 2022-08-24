@@ -19,16 +19,4 @@ class AppUsageRepository(
     fun getAppUsageData() : MutableList<UsageStats> {
         return appUsageDataSource.getAppUsageStats(context, Calendar.YEAR, UsageStatsManager.INTERVAL_MONTHLY)
     }
-
-    fun showAppUsage(usageStats: MutableList<UsageStats>) {
-        // 최근 사용으로 sorting
-        usageStats.sortWith { right, left ->
-            compareValues(left.lastTimeUsed, right.lastTimeUsed)
-        }
-
-         usageStats.forEach{ it ->
-             Log.d("usage", "packageName : ${it.packageName}, last time used ${Date(it.lastTimeUsed)}, " +
-                     "total foreground time: ${it.totalTimeInForeground}")
-         }
-    }
 }

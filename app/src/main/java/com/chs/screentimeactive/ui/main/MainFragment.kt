@@ -1,6 +1,7 @@
 package com.chs.screentimeactive.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.chs.screentimeactive.R
@@ -22,5 +23,11 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
         val adapter = MainAdapter()
         adapter.submitList(listOf("test1","test2","test3","test4","test5","test6","test7","test8"))
         binding.rvTest.adapter = adapter
+    }
+
+    override fun observeData() {
+        viewModel.appUsageData.observe(viewLifecycleOwner) {
+            Log.d("appUsage", "$it")
+        }
     }
 }

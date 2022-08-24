@@ -26,8 +26,12 @@ abstract class BaseFragment<T: ViewDataBinding>(@LayoutRes private val layoutId:
         super.onViewCreated(view, savedInstanceState)
 
         initListener()
+        observeData()
     }
 
     // listener 등록
     protected open fun initListener() {}
+
+    // Observe data 등록
+    abstract fun observeData()
 }
